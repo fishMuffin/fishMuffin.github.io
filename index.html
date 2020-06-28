@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/page_img/cat1.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Kelin</a></h1>
@@ -79,13 +79,11 @@
 				
 					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
-					<a class="qq" target="_blank" href="/3078304403" title="qq"><i class="icon-qq"></i></a>
-		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -103,7 +101,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/page_img/cat1.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Kelin</h1>
@@ -122,13 +120,11 @@
 					
 						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
-			        
-						<a class="qq" target="_blank" href="/3078304403" title="qq"><i class="icon-qq"></i></a>
-			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -198,23 +194,23 @@
 <h3 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h3><p><code>exit</code></p>
 <h3 id="查看是否在最外层"><a href="#查看是否在最外层" class="headerlink" title="查看是否在最外层"></a>查看是否在最外层</h3><p><code>docker ps</code></p>
 <h2 id="使用工具连接"><a href="#使用工具连接" class="headerlink" title="使用工具连接"></a>使用工具连接</h2><p><code>jdbc:oracle:thin:@centos7_docker02:1521:helowin</code></p>
-<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard.png" alt="img"></p>
+<p><img src="/2020/06/28/docker-oracle/clipboard.png" alt="img"></p>
 <h2 id="安装上传工具并上传文件"><a href="#安装上传工具并上传文件" class="headerlink" title="安装上传工具并上传文件"></a>安装上传工具并上传文件</h2><p><code>yum install -y lrzsz</code></p>
 <p><code>cd /tmp</code></p>
 <p><code>rz</code></p>
-<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard1.png" alt="img"></p>
+<p><img src="/2020/06/28/docker-oracle/clipboard1.png" alt="img"></p>
 <h2 id="修改oracle用户组"><a href="#修改oracle用户组" class="headerlink" title="修改oracle用户组"></a>修改oracle用户组</h2><h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><p><code>docker exec -it oracle11g_wuchuan bash</code></p>
 <h3 id="查看oracle用户组"><a href="#查看oracle用户组" class="headerlink" title="查看oracle用户组"></a>查看oracle用户组</h3><p><code>cd /home/oracle</code></p>
 <p><code>ll</code></p>
-<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard2.png" alt="img"></p>
+<p><img src="/2020/06/28/docker-oracle/clipboard2.png" alt="img"></p>
 <h3 id="进入docker卷目录"><a href="#进入docker卷目录" class="headerlink" title="进入docker卷目录"></a>进入docker卷目录</h3><p><code>cd /home/oracle/app/oracle/admin/orcl/dpdump/</code></p>
-<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard3.png" alt="img"></p>
+<p><img src="/2020/06/28/docker-oracle/clipboard3.png" alt="img"></p>
 <h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><h3 id="切换root用户-密码为helowin"><a href="#切换root用户-密码为helowin" class="headerlink" title="切换root用户,密码为helowin"></a>切换root用户,密码为helowin</h3><p><code>su root</code></p>
 <p><code>chown -R oracle:oinstall EXPDAT.DMP</code></p>
-<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard4.png" alt="img"></p>
+<p><img src="/2020/06/28/docker-oracle/clipboard4.png" alt="img"></p>
 <h2 id="创建表空间文件夹并修改权限"><a href="#创建表空间文件夹并修改权限" class="headerlink" title="创建表空间文件夹并修改权限"></a>创建表空间文件夹并修改权限</h2><p><code>mkdir -p /tmp/tablespace</code></p>
 <p><code>chown -R oracle:oinstall /tmp/tablespace</code></p>
-<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard5.png" alt="img"></p>
+<p><img src="/2020/06/28/docker-oracle/clipboard5.png" alt="img"></p>
 <h2 id="新建用户并导入数据到指定表空间"><a href="#新建用户并导入数据到指定表空间" class="headerlink" title="新建用户并导入数据到指定表空间"></a>新建用户并导入数据到指定表空间</h2><h3 id="切换回oracle用户-注意要使用su-确保加载root环境-否则oracle用户无法识别sqlplus命令"><a href="#切换回oracle用户-注意要使用su-确保加载root环境-否则oracle用户无法识别sqlplus命令" class="headerlink" title="切换回oracle用户(注意要使用su -,确保加载root环境,否则oracle用户无法识别sqlplus命令)"></a>切换回oracle用户(注意要使用su -,确保加载root环境,否则oracle用户无法识别sqlplus命令)</h3><p><code>su - oracle</code></p>
 <h3 id="启动Oracle命令行工具-连接到sysdba账户，设置用户名，密码"><a href="#启动Oracle命令行工具-连接到sysdba账户，设置用户名，密码" class="headerlink" title="启动Oracle命令行工具,连接到sysdba账户，设置用户名，密码"></a>启动Oracle命令行工具,连接到sysdba账户，设置用户名，密码</h3><p><code>sqlplus /nolog</code></p>
 <p><code>conn /as sysdba</code></p>
@@ -260,7 +256,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">docker,oracle</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -434,7 +434,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java,JDK8,lambda</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JDK8</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">lambda</a>
         		</li>
       		
 		</ul>
@@ -567,11 +575,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">docker,oracle</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java,JDK8,lambda</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDK8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lambda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
