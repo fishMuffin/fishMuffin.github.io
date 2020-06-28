@@ -6,17 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: java | Hexo</title>
+  <title>docker安装oracle11g并使用impbd导入数据 | Klein&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/java/index.html">
-<meta property="og:site_name" content="Hexo">
+  <meta name="description" content="启动docker服务systemctl start docker systemctl daemon-reload 拉取oracle镜像docker pull registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g  创建容器docker run -d -p 1521:1521 -v &#x2F;tmp:&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;admi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker安装oracle11g并使用impbd导入数据">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/docker-oracle/index.html">
+<meta property="og:site_name" content="Klein&#39;s blog">
+<meta property="og:description" content="启动docker服务systemctl start docker systemctl daemon-reload 拉取oracle镜像docker pull registry.cn-hangzhou.aliyuncs.com&#x2F;helowin&#x2F;oracle_11g  创建容器docker run -d -p 1521:1521 -v &#x2F;tmp:&#x2F;home&#x2F;oracle&#x2F;app&#x2F;oracle&#x2F;admi">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:image" content="http://yoursite.com/2020/06/28/docker-oracle/docker-oracle%5Cclipboard.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/28/docker-oracle/docker-oracle%5Cclipboard1.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/28/docker-oracle/docker-oracle%5Cclipboard2.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/28/docker-oracle/docker-oracle%5Cclipboard3.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/28/docker-oracle/docker-oracle%5Cclipboard4.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/28/docker-oracle/docker-oracle%5Cclipboard5.png">
+<meta property="article:published_time" content="2020-06-28T13:59:05.000Z">
+<meta property="article:modified_time" content="2020-06-28T14:31:05.850Z">
+<meta property="article:author" content="Kelin">
+<meta property="article:tag" content="docker,oracle">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/28/docker-oracle/docker-oracle%5Cclipboard.png">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Klein&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -46,7 +58,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">Kelin</a></h1>
 		</hgroup>
 		
 
@@ -79,11 +91,13 @@
 				
 					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="qq" target="_blank" href="/3078304403" title="qq"><i class="icon-qq"></i></a>
+		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -104,7 +118,7 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Kelin</h1>
 			</hgroup>
 			
 			
@@ -120,11 +134,13 @@
 					
 						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="qq" target="_blank" href="/3078304403" title="qq"><i class="icon-qq"></i></a>
+			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -150,60 +166,237 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-docker-oracle" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/27/jdk8/" class="archive-article-date">
-  	<time datetime="2020-06-27T10:04:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/27/jdk8/">jdk8特性:Stream流操作</a>
+    <h1 class="article-title" itemprop="name">
+      docker安装oracle11g并使用impbd导入数据
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/06/28/docker-oracle/" class="archive-article-date">
+  	<time datetime="2020-06-28T13:59:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="启动docker服务"><a href="#启动docker服务" class="headerlink" title="启动docker服务"></a>启动docker服务</h2><p><code>systemctl start docker</code></p>
+<p><code>systemctl daemon-reload</code></p>
+<h2 id="拉取oracle镜像"><a href="#拉取oracle镜像" class="headerlink" title="拉取oracle镜像"></a>拉取oracle镜像</h2><p><code>docker pull registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g</code> </p>
+<h2 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h2><p><code>docker run -d -p 1521:1521 -v /tmp:/home/oracle/app/oracle/admin/orcl/dpdump --name oracle11g_wuchuan registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g</code></p>
+<h2 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h2><p><code>docker start oracle11g_wuchuan</code></p>
+<h2 id="进入容器内部-设置oracle信息"><a href="#进入容器内部-设置oracle信息" class="headerlink" title="进入容器内部,设置oracle信息"></a>进入容器内部,设置oracle信息</h2><p><code>docker exec -it oracle11g_wuchuan bash</code></p>
+<h3 id="切换到root用户，这是在容器内部切换-密码helowin"><a href="#切换到root用户，这是在容器内部切换-密码helowin" class="headerlink" title="切换到root用户，这是在容器内部切换(密码helowin)"></a>切换到root用户，这是在容器内部切换(密码helowin)</h3><p><code>su root</code></p>
+<h3 id="编辑环境变量文件profile-etc-profile"><a href="#编辑环境变量文件profile-etc-profile" class="headerlink" title="编辑环境变量文件profile /etc/profile"></a>编辑环境变量文件profile /etc/profile</h3><p><code>vi /etc/profile</code></p>
+<h3 id="在profile-etc-profile文件末尾加上以下内容"><a href="#在profile-etc-profile文件末尾加上以下内容" class="headerlink" title="在profile /etc/profile文件末尾加上以下内容"></a>在profile /etc/profile文件末尾加上以下内容</h3><p><code>export ORACLE_HOME=/home/oracle/app/oracle/product/11.2.0/dbhome_2</code> </p>
+<p><code>export ORACLE_SID=helowin</code> </p>
+<p><code>export PATH=$ORACLE_HOME/bin:$PATH</code></p>
+<h3 id="source文件使配置文件生效"><a href="#source文件使配置文件生效" class="headerlink" title="source文件使配置文件生效"></a>source文件使配置文件生效</h3><p><code>source /etc/profile</code></p>
+<h3 id="切换到Oracle账户，注意是在容器内部切换-还有要带上”-“-否则配置文件不生效"><a href="#切换到Oracle账户，注意是在容器内部切换-还有要带上”-“-否则配置文件不生效" class="headerlink" title="切换到Oracle账户，注意是在容器内部切换,还有要带上”-“,否则配置文件不生效"></a>切换到Oracle账户，注意是在容器内部切换,还有要带上”-“,否则配置文件不生效</h3><p><code>su - oracle</code></p>
+<h3 id="启动Oracle命令行工具"><a href="#启动Oracle命令行工具" class="headerlink" title="启动Oracle命令行工具"></a>启动Oracle命令行工具</h3><p><code>sqlplus /nolog</code></p>
+<p><code>conn /as sysdba</code></p>
+<p><code>alter user system identified by oracle;</code></p>
+<p><code>alter user sys identified by oracle;</code></p>
+<p><code>alter profile default limit password_life_time unlimited;</code></p>
+<h3 id="退出命令行工具"><a href="#退出命令行工具" class="headerlink" title="退出命令行工具"></a>退出命令行工具</h3><p><code>quit</code></p>
+<h3 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h3><p><code>exit</code></p>
+<h3 id="查看是否在最外层"><a href="#查看是否在最外层" class="headerlink" title="查看是否在最外层"></a>查看是否在最外层</h3><p><code>docker ps</code></p>
+<h2 id="使用工具连接"><a href="#使用工具连接" class="headerlink" title="使用工具连接"></a>使用工具连接</h2><p><code>jdbc:oracle:thin:@centos7_docker02:1521:helowin</code></p>
+<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard.png" alt="img"></p>
+<h2 id="安装上传工具并上传文件"><a href="#安装上传工具并上传文件" class="headerlink" title="安装上传工具并上传文件"></a>安装上传工具并上传文件</h2><p><code>yum install -y lrzsz</code></p>
+<p><code>cd /tmp</code></p>
+<p><code>rz</code></p>
+<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard1.png" alt="img"></p>
+<h2 id="修改oracle用户组"><a href="#修改oracle用户组" class="headerlink" title="修改oracle用户组"></a>修改oracle用户组</h2><h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><p><code>docker exec -it oracle11g_wuchuan bash</code></p>
+<h3 id="查看oracle用户组"><a href="#查看oracle用户组" class="headerlink" title="查看oracle用户组"></a>查看oracle用户组</h3><p><code>cd /home/oracle</code></p>
+<p><code>ll</code></p>
+<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard2.png" alt="img"></p>
+<h3 id="进入docker卷目录"><a href="#进入docker卷目录" class="headerlink" title="进入docker卷目录"></a>进入docker卷目录</h3><p><code>cd /home/oracle/app/oracle/admin/orcl/dpdump/</code></p>
+<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard3.png" alt="img"></p>
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><h3 id="切换root用户-密码为helowin"><a href="#切换root用户-密码为helowin" class="headerlink" title="切换root用户,密码为helowin"></a>切换root用户,密码为helowin</h3><p><code>su root</code></p>
+<p><code>chown -R oracle:oinstall EXPDAT.DMP</code></p>
+<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard4.png" alt="img"></p>
+<h2 id="创建表空间文件夹并修改权限"><a href="#创建表空间文件夹并修改权限" class="headerlink" title="创建表空间文件夹并修改权限"></a>创建表空间文件夹并修改权限</h2><p><code>mkdir -p /tmp/tablespace</code></p>
+<p><code>chown -R oracle:oinstall /tmp/tablespace</code></p>
+<p><img src="/2020/06/28/docker-oracle/docker-oracle%5Cclipboard5.png" alt="img"></p>
+<h2 id="新建用户并导入数据到指定表空间"><a href="#新建用户并导入数据到指定表空间" class="headerlink" title="新建用户并导入数据到指定表空间"></a>新建用户并导入数据到指定表空间</h2><h3 id="切换回oracle用户-注意要使用su-确保加载root环境-否则oracle用户无法识别sqlplus命令"><a href="#切换回oracle用户-注意要使用su-确保加载root环境-否则oracle用户无法识别sqlplus命令" class="headerlink" title="切换回oracle用户(注意要使用su -,确保加载root环境,否则oracle用户无法识别sqlplus命令)"></a>切换回oracle用户(注意要使用su -,确保加载root环境,否则oracle用户无法识别sqlplus命令)</h3><p><code>su - oracle</code></p>
+<h3 id="启动Oracle命令行工具-连接到sysdba账户，设置用户名，密码"><a href="#启动Oracle命令行工具-连接到sysdba账户，设置用户名，密码" class="headerlink" title="启动Oracle命令行工具,连接到sysdba账户，设置用户名，密码"></a>启动Oracle命令行工具,连接到sysdba账户，设置用户名，密码</h3><p><code>sqlplus /nolog</code></p>
+<p><code>conn /as sysdba</code></p>
+<h3 id="创建表空间"><a href="#创建表空间" class="headerlink" title="创建表空间"></a>创建表空间</h3><p><code>CREATE TABLESPACE NNC_WUCHUAN_DATA01 DATAFILE &#39;/tmp/tablespace/nnc_data01.dbf&#39; SIZE 500M AUTOEXTEND ON NEXT 50M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 256K ;</code></p>
+<p> <code>CREATE TABLESPACE NNC_WUCHUAN_DATA02 DATAFILE &#39;/tmp/tablespace/nnc_data02.dbf&#39; SIZE 300M AUTOEXTEND ON NEXT 50M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 256K ;</code> </p>
+<p><code>CREATE TABLESPACE NNC_WUCHUAN_DATA03 DATAFILE &#39;/tmp/tablespace/nnc_data03.dbf&#39; SIZE 500M AUTOEXTEND ON NEXT 100M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 512K ;</code> </p>
+<p><code>CREATE TABLESPACE NNC_WUCHUAN_INDEX01 DATAFILE &#39;/tmp/tablespace/nnc_index01.dbf&#39; SIZE 500M AUTOEXTEND ON NEXT 50M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 128K ;</code></p>
+<p> <code>CREATE TABLESPACE NNC_WUCHUAN_INDEX02 DATAFILE &#39;/tmp/tablespace/nnc_index02.dbf&#39; SIZE 300M AUTOEXTEND ON NEXT 50M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 128K ;</code> </p>
+<p><code>CREATE TABLESPACE NNC_WUCHUAN_INDEX03 DATAFILE &#39;/tmp/tablespace/nnc_index03.dbf&#39; SIZE 500M AUTOEXTEND ON NEXT 100M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 256K ;</code></p>
+<h3 id="创建新用户"><a href="#创建新用户" class="headerlink" title="创建新用户"></a>创建新用户</h3><p><code>CREATE USER NCC_10 IDENTIFIED BY 123456 DEFAULT TABLESPACE NNC_WUCHUAN_DATA01 TEMPORARY TABLESPACE temp;</code></p>
+<h3 id="给新用户授权"><a href="#给新用户授权" class="headerlink" title="给新用户授权"></a>给新用户授权</h3><p><code>GRANT connect,dba to NCC_10 ;</code></p>
+<h3 id="退出oracle"><a href="#退出oracle" class="headerlink" title="退出oracle"></a>退出oracle</h3><p><code>quit</code></p>
+<h3 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h3><p><code>impdp NCC_10/123456@helowin DUMPFILE=EXPDAT.DMP DIRECTORY=DATA_PUMP_DIR remap_schema=ORCL:NCC_10 remap_tablespace=NNC_DATA01:NNC_WUCHUAN_DATA01,NNC_INDEX01:NNC_WUCHUAN_INDEX01</code></p>
+<h2 id="遇到过的错误"><a href="#遇到过的错误" class="headerlink" title="遇到过的错误"></a>遇到过的错误</h2><ol>
+<li><h3 id="ORA-12899-value-too-large-for-column-actual-27-maximum-20-错误解决"><a href="#ORA-12899-value-too-large-for-column-actual-27-maximum-20-错误解决" class="headerlink" title="ORA-12899: value too large for column (actual: 27, maximum: 20)错误解决"></a>ORA-12899: value too large for column (actual: 27, maximum: 20)错误解决</h3></li>
+</ol>
+<p>oracle11g导入数据时报以下错误，这是因为原来数据库的编码是GBK的，每个汉字两个字节，但新数据库是UTF-8的，每个汉字是三个字节的，导致超过长度了。</p>
+<p>解决方法：</p>
+<p>打开cmd命令窗口，输入“sqlplus /nolog”,进入“SQL&gt;”的输入符下，按照下面给出的命令一次执行就可以了</p>
+<p><code>connect username/password as SYSDBA;</code></p>
+<p><code>SHUTDOWN IMMEDIATE;</code></p>
+<p><code>STARTUP MOUNT;</code></p>
+<p><code>ALTER SYSTEM ENABLE RESTRICTED SESSION;</code></p>
+<p><code>ALTER SYSTEM SET JOB_QUEUE_PROCESSES=0;</code></p>
+<p><code>ALTER SYSTEM SET AQ_TM_PROCESSES=0;</code></p>
+<p><code>ALTER DATABASE OPEN;</code></p>
+<p><code>ALTER DATABASE CHARACTER SET ZHS16GBK ;</code></p>
+<p><code>ALTER DATABASE CHARACTER SET ZHS16GBK;</code></p>
+<h3 id="ERROR-at-line-1-ORA-12712-new-character-set-must-be-a-superset-of-old-character-set"><a href="#ERROR-at-line-1-ORA-12712-new-character-set-must-be-a-superset-of-old-character-set" class="headerlink" title="*ERROR at line 1: ORA-12712: new character set must be a superset of old character set"></a>*ERROR at line 1: ORA-12712: new character set must be a superset of old character set</h3><p>此时报错，不必慌张。提示新字符集必须是超集，此时INTRENAL_USE指令不对字符集超集进行检查。输入以下命令即可：</p>
+<p><code>ALTER DATABASE CHARACTER SET INTERNAL_USE ZHS16GBK;</code></p>
+<p><code>SHUTDOWN IMMEDIATE;</code></p>
+<p><code>STARTUP;</code></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">docker,oracle</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/28/docker-oracle/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/06/27/win10_hexo_start_demo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">win10系统Hexo博客搭建</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -213,7 +406,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 John Doe
+    		&copy; 2020 Kelin
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -226,9 +419,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -296,7 +489,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">docker,oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java,JDK8,lambda</a>
               </li>
              
               <li class="article-tag-list-item">
