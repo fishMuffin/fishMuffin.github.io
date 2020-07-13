@@ -162,62 +162,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h2><h3 id="统一建模语言介绍"><a href="#统一建模语言介绍" class="headerlink" title="统一建模语言介绍"></a>统一建模语言介绍</h3><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">统一建模语言(Unified Modeling Language,UML)是用来设计软件蓝图的可视化建模语言,1997年被国际对象管理组织(OMG)采纳为面向对象的建模语言的国际标准.它的特点是简单,统一,图形化,能表达软件中的动态与静态信息.</span><br><span class="line">统一建模语言能为软件开发的所有阶段提供模型化和可视化支持.而且融入了软件工程领域的新思想,新方法个新技术,使软件设计人员沟通更简明,进一步缩短了设计时间,减少开发成本.它的应用领域很宽,不仅适合于一般系统的开发,而且适合于并行与分布式系统的建模</span><br><span class="line">UML从目标系统的不同角度出发,定义了用例图,类图,对象图,状态图,活动图,时序图,协作图,构件图,部署图等9种图.</span><br><span class="line">推荐使用在线绘图网站(https://www.processon.com),可以方便快捷地绘制UML类图.</span><br></pre></td></tr></table></figure>
-
-<h3 id="类-接口和类图"><a href="#类-接口和类图" class="headerlink" title="类,接口和类图"></a>类,接口和类图</h3><h4 id="1-类"><a href="#1-类" class="headerlink" title="1.类"></a>1.类</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">类(class)是指具有相同属性,方法和关系的对象的抽象,它封装了数据和行为,是面向对象程序设计(OOP)的基础,具有封装性,继承性和多态性三大特征.在UML中,类使用包含类名,属性,和操作且带有分割线的矩形来表示.</span><br><span class="line">(1)类名(Name)是一个字符串,例如,Person</span><br><span class="line">(2)属性(Attribute)是指类的特性,即类的成员变量.UML按以下格式表示:</span><br><span class="line">[可见性]属性名:类型[=默认值]</span><br><span class="line">例如:-name:String</span><br><span class="line">注意:"可见性"表示该属性对类外的元素是否可见,包括公有(Public),私有(Private),受保护(Protected)和默认(Friendly)四种,在类图中分别用符号+,-,#,~表示.</span><br><span class="line">(3)操作(Operations)是类的任意一个实例对象都可以使用的行为,是类的成员方法,UML按以下格式表示:</span><br><span class="line">[可见性]名称(参数列表)[:返回类型]</span><br><span class="line">例如+display():void.</span><br></pre></td></tr></table></figure>
-
+        <h2 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h2><h3 id="统一建模语言介绍"><a href="#统一建模语言介绍" class="headerlink" title="统一建模语言介绍"></a>统一建模语言介绍</h3><p>​    一建模语言(Unified Modeling Language,UML)是用来设计软件蓝图的可视化建模语言,1997年被国际对象管理组织(OMG)采纳为面向对象的建模语言的国际标准.它的特点是简单,统一,图形化,能表达软件中的动态与静态信息.<br>​    统一建模语言能为软件开发的所有阶段提供模型化和可视化支持.而且融入了软件工程领域的新思想,新方法个新技术,使软件设计人员沟通更简明,进一步缩短了设计时间,减少开发成本.它的应用领域很宽,不仅适合于一般系统的开发,而且适合于并行与分布式系统的建模<br>​    UML从目标系统的不同角度出发,定义了用例图,类图,对象图,状态图,活动图,时序图,协作图,构件图,部署图等9种图.</p>
+<p>​    推荐使用在线绘图网站(<a href="https://www.processon.com),可以方便快捷地绘制UML类图" target="_blank" rel="noopener">https://www.processon.com),可以方便快捷地绘制UML类图</a>.</p>
+<h3 id="类-接口和类图"><a href="#类-接口和类图" class="headerlink" title="类,接口和类图"></a>类,接口和类图</h3><h4 id="1-类"><a href="#1-类" class="headerlink" title="1.类"></a>1.类</h4><p>​    类(class)是指具有相同属性,方法和关系的对象的抽象,它封装了数据和行为,是面向对象程序设计(OOP)的基础,具有封装性,继承性和多态性三大特征.在UML中,类使用包含类名,属性,和操作且带有分割线的矩形来表示.<br>​    (1)类名(Name)是一个字符串,例如,Person<br>​    (2)属性(Attribute)是指类的特性,即类的成员变量.UML按以下格式表示:<br>​    [可见性]属性名:类型[=默认值]<br>​    例如:-name:String<br>​    注意:”可见性”表示该属性对类外的元素是否可见,包括公有(Public),私有(Private),受保护(Protected)和默认(Friendly)四种,在类图中分别用符号+,-,#,~表示.<br>​    (3)操作(Operations)是类的任意一个实例对象都可以使用的行为,是类的成员方法,UML按以下格式表示:<br>​    [可见性]名称(参数列表)[:返回类型]</p>
+<p>​    例如+display():void.    </p>
 <p>图1所示是人类的UML表示.</p>
 <p><img src="/2020/07/13/GOF02/image-20200713152607557.png" alt="image-20200713152607557"></p>
 <center>图1 Person类</center>
 
 
 
-<h4 id="2-接口"><a href="#2-接口" class="headerlink" title="2.接口"></a>2.接口</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">接口(interface)是一种特殊的类,它具有类的结构但不可被实例化,只可以被子类实现.它包含抽象操作,但不包含属性.它描述了类或组件对外可见的动作.在UML中,接口使用一个带有名称的小圆圈来进行表示.</span><br></pre></td></tr></table></figure>
-
+<h4 id="2-接口"><a href="#2-接口" class="headerlink" title="2.接口"></a>2.接口</h4><p>​    接口(interface)是一种特殊的类,它具有类的结构但不可被实例化,只可以被子类实现.它包含抽象操作,但不包含属性.它描述了类或组件对外可见的动作.在UML中,接口使用一个带有名称的小圆圈来进行表示.</p>
 <p>图2所示是图形类接口的UML表示</p>
 <p><img src="/2020/07/13/GOF02/image-20200713154031082.png" alt="image-20200713154031082"></p>
 <center>图2 Graph接口</center>
 
 
 
-<h4 id="3-类图"><a href="#3-类图" class="headerlink" title="3.类图"></a>3.类图</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类图(ClassDiagram)是用来显示系统中的类,接口,协作以及它们之间的静态结构和关系的一种静态模型.它主要用于描述软件的结构化设计,帮助人们简化对软件系统的理解,它是系统分析与设计阶段的重要产物,也是系统编码与测试的重要模型依据.</span><br></pre></td></tr></table></figure>
-
+<h4 id="3-类图"><a href="#3-类图" class="headerlink" title="3.类图"></a>3.类图</h4><p>​    类图(ClassDiagram)是用来显示系统中的类,接口,协作以及它们之间的静态结构和关系的一种静态模型.它主要用于描述软件的结构化设计,帮助人们简化对软件系统的理解,它是系统分析与设计阶段的重要产物,也是系统编码与测试的重要模型依据.</p>
 <p>图3所示是”计算长方形和圆形周长与面积”的类图,图形接口有计算面积和周长的抽象方法,长方形和圆形实现这两个方法供访问类调用.</p>
 <p><img src="/2020/07/13/GOF02/image-20200713155422085.png" alt="image-20200713155422085"></p>
 <center>图3 "计算长方形和圆形周长与面积"的类图</center>
 
-<h3 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h3><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在软件系统中,类不是孤立存在的,类与类之间存在着各种关系.根据类与类之间的耦合度从弱到强排列,UML中的类图有以下几种关系:依赖关系,关联关系,聚合关系,组合关系,泛化关系和实现关系.其中泛华和实现的耦合度相等,是最强的.</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-依赖关系"><a href="#1-依赖关系" class="headerlink" title="1.依赖关系"></a>1.依赖关系</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">依赖(Dependency)关系是一种使用关系,它是对象之间耦合度最弱的一种关联方式,是临时性的关联.在代码中,某个类的方法通过局部变量,方法的参数,或者对静态方法的调用来访问另一个类(被依赖类)中的某些方法来完成一些职责.</span><br></pre></td></tr></table></figure>
-
+<h3 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h3><p>​    在软件系统中,类不是孤立存在的,类与类之间存在着各种关系.根据类与类之间的耦合度从弱到强排列,UML中的类图有以下几种关系:依赖关系,关联关系,聚合关系,组合关系,泛化关系和实现关系.其中泛华和实现的耦合度相等,是最强的.</p>
+<h4 id="1-依赖关系"><a href="#1-依赖关系" class="headerlink" title="1.依赖关系"></a>1.依赖关系</h4><p>​    依赖(Dependency)关系是一种使用关系,它是对象之间耦合度最弱的一种关联方式,是临时性的关联.在代码中,某个类的方法通过局部变量,方法的参数,或者对静态方法的调用来访问另一个类(被依赖类)中的某些方法来完成一些职责.    </p>
 <p>在UML类图中,依赖关系使用带箭头的虚线来表示,箭头从使用类指向被依赖的类.图4所示是人与手机的关系图,人通过手机来展示自己.</p>
 <p><img src="/2020/07/13/GOF02/image-20200713161344852.png" alt="image-20200713161344852"></p>
 <center>图4 依赖关系的实例</center>
 
-<h4 id="2-关联关系"><a href="#2-关联关系" class="headerlink" title="2.关联关系"></a>2.关联关系</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">关联(Association)关系是对象之间的一种引用关系,用于表示一类对象与另一类对象之间的联系,比如老师和学生,师傅和徒弟等.关联关系是类与类之间最常用的一种关系,分为一般关联关系,聚合关系和组合关系.</span><br><span class="line">关联可以是双向的,也可以是单向的.在UML类图中,双向的关联可以用带两个箭头或者没有箭头的实线来表示,单向的关联用带一个箭头的实现来表示,箭头从使用类指向被关联的类.也可以在关联线的两端标注角色名,代表不同的角色.</span><br><span class="line">在代码中通常将一个类的对象作为另一个类的成员变量来实现关联关系.</span><br></pre></td></tr></table></figure>
-
+<h4 id="2-关联关系"><a href="#2-关联关系" class="headerlink" title="2.关联关系"></a>2.关联关系</h4><p>​    关联(Association)关系是对象之间的一种引用关系,用于表示一类对象与另一类对象之间的联系,比如老师和学生,师傅和徒弟等.关联关系是类与类之间最常用的一种关系,分为一般关联关系,聚合关系和组合关系.<br>​    关联可以是双向的,也可以是单向的.在UML类图中,双向的关联可以用带两个箭头或者没有箭头的实线来表示,单向的关联用带一个箭头的实现来表示,箭头从使用类指向被关联的类.也可以在关联线的两端标注角色名,代表不同的角色.</p>
+<p>​    在代码中通常将一个类的对象作为另一个类的成员变量来实现关联关系.</p>
 <p><img src="/2020/07/13/GOF02/image-20200713162523940.png" alt="image-20200713162523940"></p>
-<h4 id="3-聚合关系"><a href="#3-聚合关系" class="headerlink" title="3.聚合关系"></a>3.聚合关系</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">聚合(Aggregation)关系是关联关系的一种,是强关联关系,是整体和部分之间的关系,是has-a的关系.</span><br><span class="line">聚合关系也是通过成员对象来实现的,其中成员对象是整体对象的一部分,但是成员对象可以脱离整体对象而独立存在.例如,汽车和轮胎的关系,如果汽车因为其他原因(发动机,油箱等)原因报废,轮胎依然可以使用.</span><br><span class="line">在UML类图中,聚合关系可以用带空心菱形的实线来表示,菱形指向整体.</span><br></pre></td></tr></table></figure>
-
+<h4 id="3-聚合关系"><a href="#3-聚合关系" class="headerlink" title="3.聚合关系"></a>3.聚合关系</h4><p>​    聚合(Aggregation)关系是关联关系的一种,是强关联关系,是整体和部分之间的关系,是has-a的关系.<br>​    聚合关系也是通过成员对象来实现的,其中成员对象是整体对象的一部分,但是成员对象可以脱离整体对象而独立存在.例如,汽车和轮胎的关系,如果汽车因为其他原因(发动机,油箱等)原因报废,轮胎依然可以使用.</p>
+<p>​    在UML类图中,聚合关系可以用带空心菱形的实线来表示,菱形指向整体.</p>
 <p>图6所示是汽车和轮胎的关系图.</p>
 <p><img src="/2020/07/13/GOF02/image-20200713163752219.png" alt="image-20200713163752219"></p>
 <center>图6 聚合关系的实例</center>
 
-<h4 id="4-组合关系"><a href="#4-组合关系" class="headerlink" title="4.组合关系"></a>4.组合关系</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">组合(Composition)关系也是关联关系的一种,也表示类之间的整体与部分的关系,但它是一种更强烈的聚合关系,是contains-a关系.</span><br><span class="line">在组合关系中,整体对象可以控制部分对象的生命周期,一旦整体对象不存在,部分对象也将不存在,部分对象不能脱离整体对象而存在.例如,一个人死了,他的器官(脑,心脏等)也会很快失去生命力.</span><br><span class="line">在UML类图中,组合关系用带实心菱形的实线来表示,菱形指向整体.</span><br></pre></td></tr></table></figure>
-
+<h4 id="4-组合关系"><a href="#4-组合关系" class="headerlink" title="4.组合关系"></a>4.组合关系</h4><p>​    组合(Composition)关系也是关联关系的一种,也表示类之间的整体与部分的关系,但它是一种更强烈的聚合关系,是contains-a关系.<br>​    在组合关系中,整体对象可以控制部分对象的生命周期,一旦整体对象不存在,部分对象也将不存在,部分对象不能脱离整体对象而存在.例如,一个人死了,他的器官(脑,心脏等)也会很快失去生命力.</p>
+<p>​    在UML类图中,组合关系用带实心菱形的实线来表示,菱形指向整体.    </p>
 <p>图7所示是人和脑的关系</p>
 <p><img src="/2020/07/13/GOF02/image-20200713165021825.png" alt="image-20200713165021825"></p>
 <center>图7 组合关系的实例</center>
 
-<h4 id="5-泛化关系"><a href="#5-泛化关系" class="headerlink" title="5.泛化关系"></a>5.泛化关系</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">泛化(Generalization)关系是对象之间耦合度最大的一种关系,表示一般与特殊的关系,是父类与字类之间的关系,是一种继承关系,是is-a的关系.</span><br><span class="line">在UML类图中,泛化关系用带空心三角箭头的实线来表示,箭头从子类指向父类.在代码实现时,使用面向对象的继承机制来实现泛化关系.</span><br></pre></td></tr></table></figure>
-
+<h4 id="5-泛化关系"><a href="#5-泛化关系" class="headerlink" title="5.泛化关系"></a>5.泛化关系</h4><p>​    泛化(Generalization)关系是对象之间耦合度最大的一种关系,表示一般与特殊的关系,是父类与字类之间的关系,是一种继承关系,是is-a的关系.</p>
+<p>​    在UML类图中,泛化关系用带空心三角箭头的实线来表示,箭头从子类指向父类.在代码实现时,使用面向对象的继承机制来实现泛化关系.</p>
 <p>例如,Cat类和Dog类都是Animal类的子类,其类图如图8所示.<img src="/2020/07/13/GOF02/image-20200713170125772.png" alt="image-20200713170125772"></p>
 <center>图8 泛化关系的实例</center>
 
-<h4 id="6-实现关系"><a href="#6-实现关系" class="headerlink" title="6.实现关系"></a>6.实现关系</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">实现(Realization)关系是接口与实现类之间的关系.在这种关系中,类实现了接口,类中的操作实现了接口中所声明的所有抽象操作.</span><br><span class="line">在UML类图中,实现关系使用带空心三角箭头的虚线来表示,箭头从实现类指向接口.例如,手机和电脑都实现了USB接口规范.</span><br></pre></td></tr></table></figure>
-
-
-
+<h4 id="6-实现关系"><a href="#6-实现关系" class="headerlink" title="6.实现关系"></a>6.实现关系</h4><p>​    实现(Realization)关系是接口与实现类之间的关系.在这种关系中,类实现了接口,类中的操作实现了接口中所声明的所有抽象操作.</p>
+<p>​    在UML类图中,实现关系使用带空心三角箭头的虚线来表示,箭头从实现类指向接口.例如,手机和电脑都实现了USB接口规范.</p>
 <p>如图9所示,是电脑和手机实现USB规范的关系图.</p>
 <p><img src="/2020/07/13/GOF02/image-20200713171400222.png" alt="image-20200713171400222"></p>
 <center>图9 实现关系的实例</center>
@@ -299,14 +293,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设计模式是前人结合自己的开发经验总结出来的,是一些通用的套路,可以提高代码的可复用性,可维护性,稳健性,可读性的解决方案.设计模式的本质是面向对象的实际运用,是对类的封装性,继承性和多态性以及类的关联和组合关系的充分理解.</span><br><span class="line">对于大型项目开发或者框架设计,设计模式往往发挥着至关重要的作用.</span><br></pre></td></tr></table></figure>
-
-<h2 id="设计模式的产生背景"><a href="#设计模式的产生背景" class="headerlink" title="设计模式的产生背景"></a>设计模式的产生背景</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设计模式的概念是来自于建筑领域的.</span><br><span class="line">1995年,"四人组"(Gang of four)联合出版了&lt;设计模式:可复用面向对象软件的基础&gt;(Design Patterns:Elements of Reusable Object-Oriented Software).书中包含了23种设计模式,时至今日,狭义上的设计模式指的就是这23中设计模式.</span><br></pre></td></tr></table></figure>
-
-<h2 id="设计模式的概念"><a href="#设计模式的概念" class="headerlink" title="设计模式的概念"></a>设计模式的概念</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">软件设计模式(Software Design Pattern),又称设计模式,是一套被反复检验求证过的,分门别类归纳总结的代码设计经验.它描述了软件设计过程中的一些不断重复发生的问题,以及该问题的解决方案.其目的是为了提高代码的可重用性,代码的可读性和代码的可靠性.</span><br></pre></td></tr></table></figure>
-
-<h2 id="学习设计模式的意义"><a href="#学习设计模式的意义" class="headerlink" title="学习设计模式的意义"></a>学习设计模式的意义</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">设计模式的本质是面向对象设计原则的实际运用,是对类的封装性,继承性和多态性以及类的关联关系和组合关系的充分理解.合理正确地使用设计模式有很多优点:</span><br><span class="line">可以提高编程人员的思维能力,编程能力和设计能力</span><br><span class="line">使设计的代码可重用性高,可读性强,可靠性高,灵活性好,可维护性强.</span><br><span class="line">使得程序设计更加标准化,代码编制更加工程化,使软件开发效率大大提高,从而缩短软件的开发周期,降低风险.</span><br></pre></td></tr></table></figure>
-
+        <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><p>​    设计模式是前人结合自己的开发经验总结出来的,是一些通用的套路,可以提高代码的可复用性,可维护性,稳健性,可读性的解决方案.设计模式的本质是面向对象的实际运用,是对类的封装性,继承性和多态性以及类的关联和组合关系的充分理解.</p>
+<p>​    对于大型项目开发或者框架设计,设计模式往往发挥着至关重要的作用.</p>
+<h2 id="设计模式的产生背景"><a href="#设计模式的产生背景" class="headerlink" title="设计模式的产生背景"></a>设计模式的产生背景</h2><p>​    设计模式的概念是来自于建筑领域的.</p>
+<p>​    1995年,”四人组”(Gang of four)联合出版了《设计模式:可复用面向对象软件的基础》(Design Patterns:Elements of Reusable Object-Oriented Software).书中包含了23种设计模式,时至今日,狭义上的设计模式指的就是这23中设计模式.</p>
+<h2 id="设计模式的概念"><a href="#设计模式的概念" class="headerlink" title="设计模式的概念"></a>设计模式的概念</h2><p>​    软件设计模式(Software Design Pattern),又称设计模式,是一套被反复检验求证过的,分门别类归纳总结的代码设计经验.它描述了软件设计过程中的一些不断重复发生的问题,以及该问题的解决方案.其目的是为了提高代码的可重用性,代码的可读性和代码的可靠性.</p>
+<h2 id="学习设计模式的意义"><a href="#学习设计模式的意义" class="headerlink" title="学习设计模式的意义"></a>学习设计模式的意义</h2><p>​    设计模式的本质是面向对象设计原则的实际运用,是对类的封装性,继承性和多态性以及类的关联关系和组合关系的充分理解.合理正确地使用设计模式有很多优点:<br>​    可以提高编程人员的思维能力,编程能力和设计能力<br>​    使设计的代码可重用性高,可读性强,可靠性高,灵活性好,可维护性强.<br>​    使得程序设计更加标准化,代码编制更加工程化,使软件开发效率大大提高,从而缩短软件的开发周期,降低风险.</p>
 <h2 id="GoF23中设计模式的分类和功能"><a href="#GoF23中设计模式的分类和功能" class="headerlink" title="GoF23中设计模式的分类和功能"></a>GoF23中设计模式的分类和功能</h2><h3 id="根据目的来分"><a href="#根据目的来分" class="headerlink" title="根据目的来分"></a>根据目的来分</h3><table>
 <thead>
 <tr>
@@ -1545,10 +1537,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GoF</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GOF</a>
               </li>
              
@@ -1558,6 +1546,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">awk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GoF</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1573,7 +1565,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sed</a>
+                <a href="javascript:void(0)" class="js-tag color5">JDK8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lambda</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1581,11 +1577,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JDK8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">lambda</a>
+                <a href="javascript:void(0)" class="js-tag color4">sed</a>
               </li>
             
             <div class="clearfix"></div>
