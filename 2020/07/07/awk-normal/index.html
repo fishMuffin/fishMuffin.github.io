@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>awk学习记录一 | Klein&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="AWK简介12awk是一个强大的文本分析工具,可以方便地对数据进行分析并生成报告.awk其实也是一个简单的程序设计语言.它的使用方法是:awk &#39;&amp;#123;pattern+action&amp;#125;&#39;&amp;#123;filenames&amp;#125;  AWK使用说明1234567891011121314151617181920212223242526272829303132333435U">
+  <meta name="description" content="AWK简介 12awk是一个强大的文本分析工具,可以方便地对数据进行分析并生成报告.awk其实也是一个简单的程序设计语言.它的使用方法是:awk &#39;&amp;#123;pattern+action&amp;#125;&#39;&amp;#123;filenames&amp;#125; AWK使用说明 1234567891011121314151617181920212223242526272829303132333435">
 <meta property="og:type" content="article">
 <meta property="og:title" content="awk学习记录一">
 <meta property="og:url" content="http://yoursite.com/2020/07/07/awk-normal/index.html">
 <meta property="og:site_name" content="Klein&#39;s blog">
-<meta property="og:description" content="AWK简介12awk是一个强大的文本分析工具,可以方便地对数据进行分析并生成报告.awk其实也是一个简单的程序设计语言.它的使用方法是:awk &#39;&amp;#123;pattern+action&amp;#125;&#39;&amp;#123;filenames&amp;#125;  AWK使用说明1234567891011121314151617181920212223242526272829303132333435U">
+<meta property="og:description" content="AWK简介 12awk是一个强大的文本分析工具,可以方便地对数据进行分析并生成报告.awk其实也是一个简单的程序设计语言.它的使用方法是:awk &#39;&amp;#123;pattern+action&amp;#125;&#39;&amp;#123;filenames&amp;#125; AWK使用说明 1234567891011121314151617181920212223242526272829303132333435">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/07/07/awk-normal/image-20200707211941818.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/07/awk-normal/image-20200707212606801.png">
@@ -196,107 +196,90 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="AWK简介"><a href="#AWK简介" class="headerlink" title="AWK简介"></a>AWK简介</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk是一个强大的文本分析工具,可以方便地对数据进行分析并生成报告.awk其实也是一个简单的程序设计语言.它的使用方法是:</span><br><span class="line">awk &#39;&#123;pattern+action&#125;&#39;&#123;filenames&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="AWK使用说明"><a href="#AWK使用说明" class="headerlink" title="AWK使用说明"></a>AWK使用说明</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Usage: awk [POSIX or GNU style options] -f progfile [--] file ...</span><br><span class="line">Usage: awk [POSIX or GNU style options] [--] <span class="string">'program'</span> file ...</span><br><span class="line">POSIX options:		GNU long options: (standard)</span><br><span class="line">	-f progfile		--file=progfile</span><br><span class="line">	-F fs			--field-separator=fs</span><br><span class="line">	-v var=val		--assign=var=val</span><br><span class="line">Short options:		GNU long options: (extensions)</span><br><span class="line">	-b			--characters-as-bytes</span><br><span class="line">	-c			--traditional</span><br><span class="line">	-C			--copyright</span><br><span class="line">	-d[file]		--dump-variables[=file]</span><br><span class="line">	-e <span class="string">'program-text'</span>	--<span class="built_in">source</span>=<span class="string">'program-text'</span></span><br><span class="line">	-E file			--<span class="built_in">exec</span>=file</span><br><span class="line">	-g			--gen-pot</span><br><span class="line">	-h			--<span class="built_in">help</span></span><br><span class="line">	-L [fatal]		--lint[=fatal]</span><br><span class="line">	-n			--non-decimal-data</span><br><span class="line">	-N			--use-lc-numeric</span><br><span class="line">	-O			--optimize</span><br><span class="line">	-p[file]		--profile[=file]</span><br><span class="line">	-P			--posix</span><br><span class="line">	-r			--re-interval</span><br><span class="line">	-S			--sandbox</span><br><span class="line">	-t			--lint-old</span><br><span class="line">	-V			--version</span><br><span class="line"></span><br><span class="line">To report bugs, see node `Bugs<span class="string">' in `gawk.info'</span>, <span class="built_in">which</span> is</span><br><span class="line">section `Reporting Problems and Bugs<span class="string">' in the printed version.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">gawk is a pattern scanning and processing language.</span></span><br><span class="line"><span class="string">By default it reads standard input and writes standard output.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Examples:</span></span><br><span class="line"><span class="string">	gawk '</span>&#123; sum += <span class="variable">$1</span> &#125;; END &#123; <span class="built_in">print</span> sum &#125;<span class="string">' file</span></span><br><span class="line"><span class="string">	gawk -F: '</span>&#123; <span class="built_in">print</span> <span class="variable">$1</span> &#125;<span class="string">' /etc/passwd</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="测试文件准备"><a href="#测试文件准备" class="headerlink" title="测试文件准备"></a>测试文件准备</h2><p>test.txt</p>
+        <h2 id="AWK简介">AWK简介</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk是一个强大的文本分析工具,可以方便地对数据进行分析并生成报告.awk其实也是一个简单的程序设计语言.它的使用方法是:</span><br><span class="line">awk &#39;&#123;pattern+action&#125;&#39;&#123;filenames&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="AWK使用说明">AWK使用说明</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Usage: awk [POSIX or GNU style options] -f progfile [--] file ...</span><br><span class="line">Usage: awk [POSIX or GNU style options] [--] <span class="string">'program'</span> file ...</span><br><span class="line">POSIX options:		GNU long options: (standard)</span><br><span class="line">	-f progfile		--file=progfile</span><br><span class="line">	-F fs			--field-separator=fs</span><br><span class="line">	-v var=val		--assign=var=val</span><br><span class="line">Short options:		GNU long options: (extensions)</span><br><span class="line">	-b			--characters-as-bytes</span><br><span class="line">	-c			--traditional</span><br><span class="line">	-C			--copyright</span><br><span class="line">	-d[file]		--dump-variables[=file]</span><br><span class="line">	-e <span class="string">'program-text'</span>	--<span class="built_in">source</span>=<span class="string">'program-text'</span></span><br><span class="line">	-E file			--<span class="built_in">exec</span>=file</span><br><span class="line">	-g			--gen-pot</span><br><span class="line">	-h			--<span class="built_in">help</span></span><br><span class="line">	-L [fatal]		--lint[=fatal]</span><br><span class="line">	-n			--non-decimal-data</span><br><span class="line">	-N			--use-lc-numeric</span><br><span class="line">	-O			--optimize</span><br><span class="line">	-p[file]		--profile[=file]</span><br><span class="line">	-P			--posix</span><br><span class="line">	-r			--re-interval</span><br><span class="line">	-S			--sandbox</span><br><span class="line">	-t			--lint-old</span><br><span class="line">	-V			--version</span><br><span class="line"></span><br><span class="line">To report bugs, see node `Bugs<span class="string">' in `gawk.info'</span>, <span class="built_in">which</span> is</span><br><span class="line">section `Reporting Problems and Bugs<span class="string">' in the printed version.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">gawk is a pattern scanning and processing language.</span></span><br><span class="line"><span class="string">By default it reads standard input and writes standard output.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Examples:</span></span><br><span class="line"><span class="string">	gawk '</span>&#123; sum += <span class="variable">$1</span> &#125;; END &#123; <span class="built_in">print</span> sum &#125;<span class="string">' file</span></span><br><span class="line"><span class="string">	gawk -F: '</span>&#123; <span class="built_in">print</span> <span class="variable">$1</span> &#125;<span class="string">' /etc/passwd</span></span><br></pre></td></tr></table></figure>
+<h2 id="测试文件准备">测试文件准备</h2>
+<p>test.txt</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">bin:x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</span><br><span class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</span><br><span class="line">lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin</span><br><span class="line">hello-awk-java-python-unix-8888</span><br><span class="line">hello-awk-java-linux-unix-8888</span><br><span class="line">hello-kkk-java-linux-unix-8888</span><br><span class="line">hello-awk-jjj-linux-unix-8888-1</span><br><span class="line">hello-awk-jjj-linux-unix-8888-2</span><br><span class="line">hello-awk-jjj-linux-unix-8888-3</span><br><span class="line">hello-awk-jjj-linux-unix-8888-4</span><br></pre></td></tr></table></figure>
-
 <p>t2.txt</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">红豆生南国</span><br><span class="line">春来发几枝</span><br><span class="line"></span><br><span class="line">愿君多采撷</span><br><span class="line">此物最相思</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="awk运行机制"><a href="#awk运行机制" class="headerlink" title="awk运行机制"></a>awk运行机制</h2><h3 id="实例一"><a href="#实例一" class="headerlink" title="实例一"></a>实例一</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;print $0&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h2 id="awk运行机制">awk运行机制</h2>
+<h3 id="实例一">实例一</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;print $0&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <p><img src="/2020/07/07/awk-normal/image-20200707211941818.png" alt="image-20200707211941818"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里是将test.txt文件中的每一行数据作为输入,然后执行&#39;&#123;&#125;&#39;代码块中的逻辑,也就是打印每一条数据.</span><br></pre></td></tr></table></figure>
-
-<h3 id="实例二"><a href="#实例二" class="headerlink" title="实例二"></a>实例二</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;print "hello,world"&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="实例二">实例二</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;print "hello,world"&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <p><img src="/2020/07/07/awk-normal/image-20200707212606801.png" alt="image-20200707212606801"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以看到这个例子中,也是将test.txt文件中的每一行数据作为输入,然后执行&#39;&#123;&#125;&#39;代码块中的逻辑,每一行都打印一次&quot;hello,world&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="实例三"><a href="#实例三" class="headerlink" title="实例三"></a>实例三</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">":"</span> <span class="string">'&#123;print $1&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="实例三">实例三</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">":"</span> <span class="string">'&#123;print $1&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将test.txt文件中的每一行数据作为输入,并且按照&quot;:&quot;分割每一行数据,输出每一行的第一域内容</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="/2020/07/07/awk-normal/image-20200709213603750.png" alt="image-20200709213603750"></p>
-<h3 id="实例四"><a href="#实例四" class="headerlink" title="实例四"></a>实例四</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">":"</span> <span class="string">'&#123;print $1 $3&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="实例四">实例四</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">":"</span> <span class="string">'&#123;print $1 $3&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输出第一域和第三域</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200709214204435.png" alt="image-20200709214204435"></p>
-<h3 id="实例五"><a href="#实例五" class="headerlink" title="实例五"></a>实例五</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">"-"</span> <span class="string">'&#123;print "first:" $1 "\t third:" $3&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="实例五">实例五</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">"-"</span> <span class="string">'&#123;print "first:" $1 "\t third:" $3&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用"-"分割每一行数据,然后将拼接字符串输出结果</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200709214511198.png" alt="image-20200709214511198"></p>
-<h3 id="实例六"><a href="#实例六" class="headerlink" title="实例六"></a>实例六</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">"-"</span> <span class="string">'&#123;if (NR&gt;=6&amp;&amp;NR&lt;=10) print $3&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="实例六">实例六</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">"-"</span> <span class="string">'&#123;if (NR&gt;=6&amp;&amp;NR&lt;=10) print $3&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用"-"分割数据,打印第六行到第十行的域三数据</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200709214945667.png" alt="image-20200709214945667"></p>
 <p>实例七</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">"-"</span> <span class="string">'&#123;print $1 "--- " $6&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用"-"将数据分割,然后拼接输出域一和域三数据</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200709215319431.png" alt="image-20200709215319431"></p>
-<h2 id="begin和end"><a href="#begin和end" class="headerlink" title="begin和end"></a>begin和end</h2><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">综上所述,对于每一行输入数据,awk会将代码块中的代码都执行一次.有些情况下需要在处理文本之前初始化代码(begin),有时又需要在结束时做一些操作(end).就相当于java测试中的@Before和@After注解.</span><br><span class="line">begin代码块一般用于初始化字段分隔符,全局变量初始化.</span><br><span class="line">end代码块一般用于最终计算或打印应该出现在末尾的信息</span><br></pre></td></tr></table></figure>
-
-<h3 id="实例一-1"><a href="#实例一-1" class="headerlink" title="实例一"></a>实例一</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;count ++;print $0&#125;; END&#123;print "context count is ",count&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h2 id="begin和end">begin和end</h2>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">综上所述,对于每一行输入数据,awk会将代码块中的代码都执行一次.有些情况下需要在处理文本之前初始化代码(begin),有时又需要在结束时做一些操作(end).就相当于java测试中的@Before和@After注解.</span><br><span class="line">begin代码块一般用于初始化字段分隔符,全局变量初始化.</span><br><span class="line">end代码块一般用于最终计算或打印应该出现在末尾的信息</span><br></pre></td></tr></table></figure>
+<h3 id="实例一-2">实例一</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;count ++;print $0&#125;; END&#123;print "context count is ",count&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定义变量,逐行打印每一行数据,变量递增,最后打印END块中的语句</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200709220321640.png" alt="image-20200709220321640"></p>
-<h3 id="实例二-1"><a href="#实例二-1" class="headerlink" title="实例二"></a>实例二</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN &#123;count=0;print "start num is "count&#125; &#123;count=count+1;print $0&#125; END&#123;print "end num is ",count&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="实例二-2">实例二</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN &#123;count=0;print "start num is "count&#125; &#123;count=count+1;print $0&#125; END&#123;print "end num is ",count&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定义变量,在BEGIN块中输出变量的值,逐行输出每行数据,变量递增,在END块中输出变量最终的值.</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200709220831463.png" alt="image-20200709220831463"></p>
-<h3 id="实例三-1"><a href="#实例三-1" class="headerlink" title="实例三"></a>实例三</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">"-"</span> <span class="string">'BEGIN&#123;num=0;&#125; &#123;num=num+$7&#125; END&#123;print num&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="实例三-2">实例三</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">"-"</span> <span class="string">'BEGIN&#123;num=0;&#125; &#123;num=num+$7&#125; END&#123;print num&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">以"-"分割数据,在begin块中定义变量,逐行累加域七的数据,在end块中输出</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200709221431622.png" alt="image-20200709221431622"></p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a=5;a+=5;print a&#125;'</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="运算符">运算符</h2>
+<h3 id="赋值运算符">赋值运算符</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a=5;a+=5;print a&#125;'</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2020/07/07/awk-normal/image-20200710085901364.png" alt="image-20200710085901364"></p>
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a=1;b=2;print (a&gt;2&amp;&amp;b&gt;1,a=1||b&gt;1)&#125;'</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="逻辑运算符">逻辑运算符</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a=1;b=2;print (a&gt;2&amp;&amp;b&gt;1,a=1||b&gt;1)&#125;'</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a&gt;2不成立,所以结果为0,即false,a=1||b&gt;1成立,所以结果为1,即为true;</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710090105470.png" alt="image-20200710090105470"></p>
-<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a=2;b=1;if(a&gt;=b)&#123;print "yes"&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="关系运算符">关系运算符</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a=2;b=1;if(a&gt;=b)&#123;print "yes"&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2020/07/07/awk-normal/image-20200710091436793.png" alt="image-20200710091436793"></p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">值得注意的是,如果拿字符串和和数字比较,会统一使用ascii码顺序比较</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a=2;b="a";if(a&gt;=b)&#123;print "yes"&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a变量2的ASCII码值是50,b变量"a"的ASCII码值是97,所以没有输出.</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710091720345.png" alt="image-20200710091720345"></p>
-<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">算术运算符在运算时,遇到非数值的都会将其转换为0</span><br></pre></td></tr></table></figure>
-
+<h3 id="算术运算符">算术运算符</h3>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">算术运算符在运算时,遇到非数值的都会将其转换为0</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a="20asd3";print a++&#125;'</span></span><br><span class="line">awk <span class="string">'BEGIN&#123;a="20asd3";print a&#125;'</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710092142952.png" alt="image-20200710092142952"></p>
-<h3 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a="a";print a=="a"?"yes":"no"&#125;'</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="三目运算符">三目运算符</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a="a";print a=="a"?"yes":"no"&#125;'</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2020/07/07/awk-normal/image-20200710092410850.png" alt="image-20200710092410850"></p>
-<h2 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h2><table>
+<h2 id="内置变量">内置变量</h2>
+<table>
 <thead>
 <tr>
 <th>变量名</th>
 <th>属性</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>$0</td>
 <td>当前记录</td>
 </tr>
@@ -328,83 +311,62 @@
 <td>ORS</td>
 <td>输出的记录分隔符,默认是换行符</td>
 </tr>
-</tbody></table>
-<h3 id="字段分隔符FS"><a href="#字段分隔符FS" class="headerlink" title="字段分隔符FS"></a>字段分隔符FS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN &#123;FS="-"&#125;&#123;print $1 "\t" $2&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+</tbody>
+</table>
+<h3 id="字段分隔符FS">字段分隔符FS</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN &#123;FS="-"&#125;&#123;print $1 "\t" $2&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分割符为"-",打印域一和域三的数据</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="/2020/07/07/awk-normal/image-20200710094058919.png" alt="image-20200710094058919"></p>
-<h3 id="字段数量NF"><a href="#字段数量NF" class="headerlink" title="字段数量NF"></a>字段数量NF</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">"-"</span> <span class="string">'NF==7&#123;print $0&#125;'</span> test.txt</span><br><span class="line">awk -F <span class="string">"-"</span> <span class="string">'NF==1&#123;print $0&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="字段数量NF">字段数量NF</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk -F <span class="string">"-"</span> <span class="string">'NF==7&#123;print $0&#125;'</span> test.txt</span><br><span class="line">awk -F <span class="string">"-"</span> <span class="string">'NF==1&#123;print $0&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按照&quot;-&quot;分割数据,分别输出分割后的字段数量为7和1的行</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710094910618.png" alt="image-20200710094910618"></p>
-<h3 id="数量记录NR"><a href="#数量记录NR" class="headerlink" title="数量记录NR"></a>数量记录NR</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;print NR "----" $0&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="数量记录NR">数量记录NR</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123;print NR "----" $0&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将NR记录作为每一行的行号拼接在开始位置</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="/2020/07/07/awk-normal/image-20200710095824844.png" alt="image-20200710095824844"></p>
-<h3 id="记录分隔符RS"><a href="#记录分隔符RS" class="headerlink" title="记录分隔符RS"></a>记录分隔符RS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;FS="\n";RS=""&#125;&#123;print $1" "$2&#125;'</span> t2.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="记录分隔符RS">记录分隔符RS</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;FS="\n";RS=""&#125;&#123;print $1" "$2&#125;'</span> t2.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FS为&quot;\n&quot;表示每个字段都占据一行,RS为&quot;&quot;表示一条记录的分隔符是空白分隔符.下面的唐诗中间有一行都是空白分隔符,将每一行整行切割,所以这里的计量单位就变成了一条记录,一条记录中被切割两次,有两个域,域一为第一行数据,域二为第二行数据.</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710100909625.png" alt="image-20200710100909625"></p>
-<h3 id="输出字段分隔符-OFS"><a href="#输出字段分隔符-OFS" class="headerlink" title="输出字段分隔符 OFS"></a>输出字段分隔符 OFS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;FS="-";OFS="#"&#125;&#123;print $1,$2,$3&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
+<h3 id="输出字段分隔符-OFS">输出字段分隔符 OFS</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;FS="-";OFS="#"&#125;&#123;print $1,$2,$3&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按照"-"分割每行数据,打印输出分割符"#"</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710101900591.png" alt="image-20200710101900591"></p>
-<h3 id="输出记录分隔符-ORS"><a href="#输出记录分隔符-ORS" class="headerlink" title="输出记录分隔符 ORS"></a>输出记录分隔符 ORS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/awk</span></span><br><span class="line">BEGIN&#123;</span><br><span class="line">        FS=<span class="string">"\n"</span></span><br><span class="line">        RS=<span class="string">""</span></span><br><span class="line">        ORS=<span class="string">"\n\n"</span></span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">        <span class="built_in">print</span> <span class="variable">$1</span> <span class="string">"  "</span> <span class="variable">$2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h3 id="输出记录分隔符-ORS">输出记录分隔符 ORS</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/awk</span></span><br><span class="line">BEGIN&#123;</span><br><span class="line">        FS=<span class="string">"\n"</span></span><br><span class="line">        RS=<span class="string">""</span></span><br><span class="line">        ORS=<span class="string">"\n\n"</span></span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">        <span class="built_in">print</span> <span class="variable">$1</span> <span class="string">"  "</span> <span class="variable">$2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -f ORS_awk t2.txt</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里将awk命令写入awk脚本,使用-f执行对应脚本.输出记录符为ORS,ORS为"<span class="tag">\<span class="name">n</span></span><span class="tag">\<span class="name">n</span></span>",所以记录之间的间隔为两行(空一行).</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710103113133.png" alt="image-20200710103113133"></p>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><p><img src="/2020/07/07/awk-normal/1089507-20170126232437800-1355193233.jpg" alt="1089507-20170126232437800-1355193233"></p>
-<h3 id="示例一"><a href="#示例一" class="headerlink" title="示例一"></a>示例一</h3><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk+正则表达式的语法是awk '/REG/&#123;logic&#125;' file,/REG/为正则表达式.</span><br><span class="line">以下示例表示打印行中包含linux字段的行</span><br></pre></td></tr></table></figure>
-
+<h2 id="正则表达式">正则表达式</h2>
+<h3 id="总览">总览</h3>
+<p><img src="/2020/07/07/awk-normal/1089507-20170126232437800-1355193233.jpg" alt="1089507-20170126232437800-1355193233"></p>
+<h3 id="示例一">示例一</h3>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk+正则表达式的语法是awk '/REG/&#123;logic&#125;' file,/REG/为正则表达式.</span><br><span class="line">以下示例表示打印行中包含linux字段的行</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'/linux/&#123;print $0&#125;'</span> test.txt</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710104729149.png" alt="image-20200710104729149"></p>
-<h3 id="示例二"><a href="#示例二" class="headerlink" title="示例二"></a>示例二</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a="hello123java";if(a~/123/)&#123;print "ok"&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="示例二">示例二</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123;a="hello123java";if(a~/123/)&#123;print "ok"&#125;&#125;'</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定义字符串"hello123java",判断字符串中是否包含"123"</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710090753451.png" alt="image-20200710090753451"></p>
-<h2 id="循环流程控制和数组"><a href="#循环流程控制和数组" class="headerlink" title="循环流程控制和数组"></a>循环流程控制和数组</h2><h3 id="流程控制if"><a href="#流程控制if" class="headerlink" title="流程控制if"></a>流程控制if</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">!/bin/awk</span><br><span class="line">BEGIN&#123;</span><br><span class="line">	FS=<span class="string">"-"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$0</span> ~ /linux/)&#123;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">print</span> <span class="string">"cannot find \"linux\" !"</span>	</span><br><span class="line">		&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<h2 id="循环流程控制和数组">循环流程控制和数组</h2>
+<h3 id="流程控制if">流程控制if</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">!/bin/awk</span><br><span class="line">BEGIN&#123;</span><br><span class="line">	FS=<span class="string">"-"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$0</span> ~ /linux/)&#123;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">print</span> <span class="string">"cannot find \"linux\" !"</span>	</span><br><span class="line">		&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -f if_awk test.txt</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分隔符是"-",如果改行包含linux字段,不做操作,如果没有则输出"cannot find linux !"</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710110109259.png" alt="image-20200710110109259"></p>
-<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while格式:</span><br><span class="line">while(表达式)</span><br><span class="line">&#123;语句&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<h3 id="循环">循环</h3>
+<h4 id="while">while</h4>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while格式:</span><br><span class="line">while(表达式)</span><br><span class="line">&#123;语句&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123; test=1000; total=0; while(i&lt;=test) &#123;     total+=i;     i++; &#125; print total; &#125;'</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">从1累加到1000</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710111500729.png" alt="image-20200710111500729"></p>
-<h4 id="for"><a href="#for" class="headerlink" title="for"></a>for</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">格式1:</span><br><span class="line"></span><br><span class="line">for(变量 in 数组)</span><br><span class="line"></span><br><span class="line">&#123;语句&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">格式2:</span><br><span class="line">for(变量;条件;表达式)</span><br><span class="line">&#123;语句&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="for">for</h4>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">格式1:</span><br><span class="line"></span><br><span class="line">for(变量 in 数组)</span><br><span class="line"></span><br><span class="line">&#123;语句&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">格式2:</span><br><span class="line">for(变量;条件;表达式)</span><br><span class="line">&#123;语句&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123; for(k in ENVIRON) &#123;     print k"="ENVIRON[k]; &#125; &#125;'</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">遍历输出系统环境变量值,ENVIRON是一个数组</span><br></pre></td></tr></table></figure>
-
-
-
 <p><img src="/2020/07/07/awk-normal/image-20200710112350934.png" alt="image-20200710112350934"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN&#123; total=0; for(i=0;i&lt;=100;i++) &#123;     total+=i; &#125; print total; &#125;'</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="/2020/07/07/awk-normal/image-20200710112516873.png" alt="image-20200710112516873"></p>
 
       
@@ -419,7 +381,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thanks for wathcing!<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     
@@ -659,6 +621,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">awk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">oracle</a>
               </li>
              
@@ -667,11 +637,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">grep</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grep</a>
+                <a href="javascript:void(0)" class="js-tag color4">sed</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,14 +654,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lambda</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">awk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sed</a>
               </li>
             
             <div class="clearfix"></div>
