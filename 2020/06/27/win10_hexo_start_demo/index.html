@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/06/27/win10_hexo_start_demo/image-20200627184600716.png">
 <meta property="og:image" content="http://yoursite.com/2020/06/27/win10_hexo_start_demo/image-20200627184736910.png">
 <meta property="article:published_time" content="2020-06-27T10:53:31.000Z">
-<meta property="article:modified_time" content="2020-06-28T14:31:43.508Z">
+<meta property="article:modified_time" content="2020-07-15T01:13:15.934Z">
 <meta property="article:author" content="Klein">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -229,6 +229,12 @@
 <h4 id="将配置-config-yml里面的post-asset-folder-false这个选项设置为true。">将配置<code>_config.yml</code>里面的<code>post_asset_folder:false</code>这个选项设置为<code>true</code>。</h4>
 <h4 id="安装hexo-assert-image插件">安装hexo-assert-image插件</h4>
 <p><code>npm install https://github.com/7ym0n/hexo-asset-image --sa</code></p>
+<h3 id="hexo中如何使用emoji表情">hexo中如何使用emoji表情</h3>
+<p>markdown和html可以互相转换,hexo中的默认markdow渲染器是<code>hexo-render-marked</code>,它不支持emoji表情.如果要使用emoji,只需要换一个支持emoji的markdown渲染器就行了.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-markdown-it --save</span><br><span class="line">npm install markdown-it-emoji --save</span><br></pre></td></tr></table></figure>
+<p>安装完了之后需要配置<code>_config.yml</code>配置文件,注意不是主题的配置文件.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">markdown:</span></span><br><span class="line">  <span class="attr">plugins:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-footnote</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sup</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-sub</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-abbr</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">markdown-it-emoji</span></span><br></pre></td></tr></table></figure>
+<p>更多配置可以查看:</p>
 
       
 
@@ -502,15 +508,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JDK8</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lambda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>
