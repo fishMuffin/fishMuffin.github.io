@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: hexo | Klein&#39;s blog</title>
+  <title>设计模式入门五(工厂方法模式) | Klein&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Klein&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/tags/hexo/index.html">
+  <meta name="description" content="工厂方法模式 工厂方法模式的定义 工厂(FactoryMethod)方法模式的定义:定义一个创建产品对象的工厂接口,将产品对象的实际创作工作推迟到具体子工厂类中.这满足创建型模式中要求的&quot;创建与使用相分离&quot;的特点. 我们把被创建的对象称为&quot;产品&quot;,把创建产品的对象称为&quot;工厂&quot;.如果创建的产品不多,只要一个工厂类就可以完成,这种模式叫&amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式入门五(工厂方法模式)">
+<meta property="og:url" content="http://yoursite.com/2020/07/15/GOF05/index.html">
 <meta property="og:site_name" content="Klein&#39;s blog">
+<meta property="og:description" content="工厂方法模式 工厂方法模式的定义 工厂(FactoryMethod)方法模式的定义:定义一个创建产品对象的工厂接口,将产品对象的实际创作工作推迟到具体子工厂类中.这满足创建型模式中要求的&quot;创建与使用相分离&quot;的特点. 我们把被创建的对象称为&quot;产品&quot;,把创建产品的对象称为&quot;工厂&quot;.如果创建的产品不多,只要一个工厂类就可以完成,这种模式叫&amp;qu">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/07/15/GOF05/%5Cimage-20200715140738223.png">
+<meta property="article:published_time" content="2020-07-15T05:25:57.000Z">
+<meta property="article:modified_time" content="2020-07-20T00:29:52.030Z">
 <meta property="article:author" content="Klein">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="GoF">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/15/GOF05/%5Cimage-20200715140738223.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -140,60 +148,211 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-GOF05" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/27/win10_hexo_start_demo/" class="archive-article-date">
-  	<time datetime="2020-06-27T10:53:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/27/win10_hexo_start_demo/">win10系统Hexo博客搭建</a>
+    <h1 class="article-title" itemprop="name">
+      设计模式入门五(工厂方法模式)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/15/GOF05/" class="archive-article-date">
+  	<time datetime="2020-07-15T05:25:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1>工厂方法模式</h1>
+<h2 id="工厂方法模式的定义">工厂方法模式的定义</h2>
+<p>工厂(FactoryMethod)方法模式的定义:定义一个创建产品对象的工厂接口,将产品对象的实际创作工作推迟到具体子工厂类中.这满足创建型模式中要求的&quot;创建与使用相分离&quot;的特点.</p>
+<p>我们把被创建的对象称为&quot;产品&quot;,把创建产品的对象称为&quot;工厂&quot;.如果创建的产品不多,只要一个工厂类就可以完成,这种模式叫&quot;简单工厂模式&quot;,它不属于GoF23中经典设计模式,它的缺点是增加新产品时会违背&quot;开闭原则&quot;.</p>
+<h2 id="工厂方法模式的优缺点">工厂方法模式的优缺点</h2>
+<h3 id="优点">优点</h3>
+<p>1️⃣用户只需要知道具体工厂的名称就可得到所要的产品,无须知道产品的具体创建过程.</p>
+<p>2️⃣在系统增加新的产品时只需要添加具体产品类和对应的具体工厂类,无须对原工厂进行任何修改,满足开闭原则.</p>
+<h3 id="缺点">缺点</h3>
+<p>1️⃣每增加一个产品就要增加一个具体产品类和一个对应的具体工厂类,这增加系统的复杂度</p>
+<h2 id="工厂方法模式的应用实例">工厂方法模式的应用实例</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HuaWeiPhone</span> <span class="keyword">implements</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"华为手机call"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApplePhone</span> <span class="keyword">implements</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"苹果手机call"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">PhoneFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPhone</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HuaWeiPhoneFactory</span> <span class="keyword">implements</span> <span class="title">PhoneFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"生产了一台华为手机"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HuaWeiPhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApplePhoneFactory</span> <span class="keyword">implements</span> <span class="title">PhoneFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"生产了一台苹果手机"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApplePhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FactoryMethodTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        PhoneFactory factory;</span><br><span class="line">        factory=<span class="keyword">new</span> ApplePhoneFactory();</span><br><span class="line">        factory.createPhone();</span><br><span class="line">        factory=<span class="keyword">new</span> HuaWeiPhoneFactory();</span><br><span class="line">        factory.createPhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果:</span></span><br><span class="line">    <span class="comment">//生产了一台苹果手机</span></span><br><span class="line">    <span class="comment">//生产了一台华为手机</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上述的代码符合开闭原则,无论要生产什么品牌的手机,只需要添加对应产品的工厂类即可.但是这还是有缺点的,如果产品过多,就会产生过多的工厂类.因此还有一种抽象工厂模式是工厂方法模式的升级版.</span><br></pre></td></tr></table></figure>
+<h2 id="工厂方法模式和抽象工厂模式的区别">工厂方法模式和抽象工厂模式的区别</h2>
+<p>工厂方法模式中考虑的是一类产品的生产,如畜牧场只羊动物,电视机厂只生产电视机.</p>
+<p>同种类称为同等级,也就是说:工厂方法模式只考虑生产同等级的产品,但是在实现生活中许多工厂是综合型的工厂,能生产多等级(种类)的产品,如农场里既养动物又种植物,电器厂既生产电视机又生产洗衣机或空调.</p>
+<p>抽象工厂模式将考虑多等级产品的生产,将同一个具体工厂所生产的位于不同等级的一组产品称为一个产品族,图1所示的是苹果工厂和华为工厂所生产的手机与电脑的对应关系.</p>
+<p><img src="/2020/07/15/GOF05/%5Cimage-20200715140738223.png" alt="image-20200715140738223"></p>
+<h1>抽象工厂模式</h1>
+<h2 id="抽象工厂模式的定义">抽象工厂模式的定义</h2>
+<p>抽象工厂(AbstractFactory)模式的定义:是一种为访问类提供一个创建一组相关或依赖对象的接口,且访问类无须指定所要产品的具体类就能得到同族不同等级的产品的模式结构.</p>
+<p>抽象工厂模式是工厂方法模式的升级版本,工厂方法模式只生产一个等级的产品,而抽象工厂模式可生产多个等级的产品.</p>
+<p>使用抽象工厂模式一般要满足以下条件:</p>
+<p>1️⃣系统中有多个产品族,每个具体工厂创建同一族但属于不同等级结构的产品</p>
+<p>2️⃣系统一次只可能消费其中某一族产品,即同族的产品一起使用</p>
+<h2 id="抽象工厂模式的优缺点">抽象工厂模式的优缺点</h2>
+<p>抽象工厂模式除了具有工厂方法模式的优点外,其他主要优点如下:</p>
+<p>1️⃣可以在类 的内部对产品族中相关联的多等级产品共同管理,而不必专门引入多个新的类来进行管理</p>
+<p>2️⃣当增加一个新的产品族时不需要修改源代码,满足开闭原则</p>
+<p>缺点是:</p>
+<p>1️⃣当产品族中需要增加一个新的产品时,所有的工厂类都需要进行修改</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HuaWeiPhone</span> <span class="keyword">implements</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"华为手机call"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApplePhone</span> <span class="keyword">implements</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"苹果手机call"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calc</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HuaWeiComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"华为电脑计算"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppleComputer</span> <span class="keyword">implements</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"苹果电脑计算"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">factory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPhone</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">factoryHuaWei</span> <span class="keyword">implements</span> <span class="title">factory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"生产了一台华为手机"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HuaWeiPhone();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"生产了一台华为电脑"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HuaWeiComputer();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">factoryApple</span> <span class="keyword">implements</span> <span class="title">factory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Phone <span class="title">createPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"生产了一台苹果手机"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApplePhone();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Computer <span class="title">createComputer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"生产了一台苹果电脑"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> AppleComputer();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractFactoryTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        factory f;</span><br><span class="line">        f = <span class="keyword">new</span> factoryHuaWei();</span><br><span class="line">        f.createPhone();</span><br><span class="line">        f.createComputer();</span><br><span class="line">        f = <span class="keyword">new</span> factoryApple();</span><br><span class="line">        f.createPhone();</span><br><span class="line">        f.createComputer();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果:</span></span><br><span class="line">    <span class="comment">//生产了一台华为手机</span></span><br><span class="line">    <span class="comment">//生产了一台华为电脑</span></span><br><span class="line">    <span class="comment">//生产了一台苹果手机</span></span><br><span class="line">    <span class="comment">//生产了一台苹果电脑</span></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thanks for wathcing!<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GoF</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/15/GOF05/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/07/15/C-Learning01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          C#学习一(入门)
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/07/15/keyword-volatile/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java中volatile关键字的作用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -216,9 +375,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

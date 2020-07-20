@@ -8,13 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>设计模式入门四(单例模式) | Klein&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="单例模式的定义与特点 单例模式(singleton)的定义:指一个类只有一个实例,且该类能自行创建这个实例的一种模式. 在计算机系统中,Windows的回收站,操作系统中的文件系统,多线程中的线程池,显卡的驱动程序对象,打印机的后台处理服务,应用程序的日志对象,数据库的连接池,网站的计数器等. 单例模式有3个特点: 1️⃣单例类只有一个实例对象 2️⃣该单例对象必须由单例类自行创建 3️⃣单例类对">
+<meta property="og:type" content="article">
 <meta property="og:title" content="设计模式入门四(单例模式)">
 <meta property="og:url" content="http://yoursite.com/2020/07/15/GOF04/index.html">
 <meta property="og:site_name" content="Klein&#39;s blog">
+<meta property="og:description" content="单例模式的定义与特点 单例模式(singleton)的定义:指一个类只有一个实例,且该类能自行创建这个实例的一种模式. 在计算机系统中,Windows的回收站,操作系统中的文件系统,多线程中的线程池,显卡的驱动程序对象,打印机的后台处理服务,应用程序的日志对象,数据库的连接池,网站的计数器等. 单例模式有3个特点: 1️⃣单例类只有一个实例对象 2️⃣该单例对象必须由单例类自行创建 3️⃣单例类对">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-15T00:44:45.000Z">
-<meta property="article:modified_time" content="2020-07-15T00:51:43.469Z">
+<meta property="article:modified_time" content="2020-07-15T02:05:39.436Z">
 <meta property="article:author" content="Klein">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="GoF">
@@ -164,7 +166,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="单例模式的定义与特点">单例模式的定义与特点</h2>
+<p>单例模式(singleton)的定义:指一个类只有一个实例,且该类能自行创建这个实例的一种模式.</p>
+<p>在计算机系统中,Windows的回收站,操作系统中的文件系统,多线程中的线程池,显卡的驱动程序对象,打印机的后台处理服务,应用程序的日志对象,数据库的连接池,网站的计数器等.</p>
+<p>单例模式有3个特点:</p>
+<p>1️⃣单例类只有一个实例对象</p>
+<p>2️⃣该单例对象必须由单例类自行创建</p>
+<p>3️⃣单例类对外提供一个访问该单例的全局访问点</p>
+<h2 id="单例模式的实现">单例模式的实现</h2>
+<h3 id="饿汉式单例">饿汉式单例</h3>
+<p>这个模式的特点是类一旦加载就创建一个单例,保证在调用getInstance方法之前单例就已经存在了.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SingletonTest instance = <span class="keyword">new</span> SingletonTest();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonTest <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="懒汉式单例">懒汉式单例</h3>
+<p>该模式的特点是类加载时没有生成单例,只有当第一次调用getInstance方法时才会去创建这个单例.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> SingletonTest instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SingletonTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> SingletonTest <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> SingletonTest();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意:如果是在多线程环境中的单例,不能删除上例代码中的关键字volatile和synchronized,否则会存在线程安全的问题.但是这两个关键字,使得每次访问都要同步,会影响性能,且消耗更多的资源.</span><br></pre></td></tr></table></figure>
+<h2 id="单例模式的应用实例">单例模式的应用实例</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Person instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Person <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Person();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonApp</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person p1 = Person.getInstance();</span><br><span class="line">        Person p2 = Person.getInstance();</span><br><span class="line">        System.out.println(<span class="string">"p1--&gt;"</span>+p1);</span><br><span class="line">        System.out.println(<span class="string">"p2--&gt;"</span>+p2);</span><br><span class="line">        <span class="keyword">if</span>(p1==p2)&#123;</span><br><span class="line">            System.out.println(<span class="string">"是同一个人!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//p1--&gt;GoF.Person@14ae5a5</span></span><br><span class="line">    <span class="comment">//p2--&gt;GoF.Person@14ae5a5</span></span><br><span class="line">    <span class="comment">//是同一个人!</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">以上的例子可以发现,以上的p1和p2两个对象通过单例模式获取的,所以他们俩的地址值相等,是同一个对象</span><br></pre></td></tr></table></figure>
+<h2 id="单例模式的应用场景">单例模式的应用场景</h2>
+<p>1️⃣某个类只要求生成一个对象的时候,如一个班的班长</p>
+<p>2️⃣当对象需要被共享的场合.由于单例模式只允许创建一个对象,共享该对象可以节省内存,并加快对象访问速度.如web中的配置对象,数据库的连接池等.</p>
+<p>3️⃣当某类需要频繁实例化,而创建的对象又频繁被销毁的时候,如多线程的线程池,网络连接池等.</p>
+
       
 
       
@@ -271,6 +295,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/07/15/keyword-volatile/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java中volatile关键字的作用
+        
+      </div>
+    </a>
   
   
     <a href="/2020/07/14/GOF03/" id="article-nav-older" class="article-nav-link-wrap">
@@ -400,6 +433,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -416,6 +453,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">grep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">oracle</a>
               </li>
              
@@ -424,19 +465,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grep</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sed</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JDK8</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lambda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">volatile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">并发编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sed</a>
               </li>
              
               <li class="article-tag-list-item">
